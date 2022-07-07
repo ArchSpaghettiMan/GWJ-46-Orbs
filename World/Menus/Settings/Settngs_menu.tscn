@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://World/Menus/Settings/Settngs_menu.gd" type="Script" id=1]
+
+[node name="Settngs_menu" type="Node2D" groups=["Level"]]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = -1394.0
+margin_top = -1248.0
+margin_right = 2974.0
+margin_bottom = 1868.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.862745, 0.976471, 0.905882, 1 )
+
+[node name="Scene_objects" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}

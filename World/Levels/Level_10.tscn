@@ -1,0 +1,289 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://World/Levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/Turret/Turret.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene_objects/Ground/Ground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Bubbles/Bubble_manager/Bubble_manager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prizes/Goal/Goal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scene_objects/Death_zone/Death_zone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scene_objects/Red_zone/Red_zone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemies/Spike/Spike.tscn" type="PackedScene" id=9]
+[ext_resource path="res://World/Menus/End_menu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Player/Cameras/Cameras.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Fonts/Font_presets/Normal_text.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Assets/Fonts/Font_presets/Bold_text.tres" type="DynamicFont" id=13]
+
+[sub_resource type="Theme" id=6]
+
+[sub_resource type="Theme" id=5]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 100, 194 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2544, 32 )
+
+[node name="Level_10" type="Node2D" groups=["Level"]]
+pause_mode = 2
+script = ExtResource( 1 )
+max_bubbles = 5
+next_level = ExtResource( 10 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = -2704.0
+margin_top = -1950.0
+margin_right = 4284.0
+margin_bottom = 2570.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Background" type="CanvasLayer" parent="Control"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Control/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.862745, 0.976471, 0.905882, 1 )
+
+[node name="Level_stats" type="CanvasLayer" parent="Control"]
+
+[node name="Bubble_count" type="Label" parent="Control/Level_stats"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -69.0
+margin_right = 69.0
+margin_bottom = 14.0
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 12 )
+text = "MAMAMAMAMMAMA"
+
+[node name="Level_label" type="Label" parent="Control/Level_stats"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -227.5
+margin_top = -31.0
+margin_right = 227.5
+theme = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+text = "Starting Menu"
+align = 1
+valign = 1
+
+[node name="Scene_objects" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Grounds" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ground" parent="Scene_objects/Grounds" instance=ExtResource( 3 )]
+position = Vector2( 770, 598 )
+
+[node name="Sprite" parent="Scene_objects/Grounds/Ground" index="0"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 15.625, 1.875 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene_objects/Grounds/Ground"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 15.625, 1.875 )
+polygon = PoolVector2Array( 16, 16, -16, 16, -16, -16, 16, -16 )
+
+[node name="Ground3" parent="Scene_objects/Grounds" instance=ExtResource( 3 )]
+position = Vector2( 1526, 598 )
+
+[node name="Sprite" parent="Scene_objects/Grounds/Ground3" index="0"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 31.875, 1.875 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene_objects/Grounds/Ground3"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 31.875, 1.875 )
+polygon = PoolVector2Array( 16, 16, -16, 16, -16, -16, 16, -16 )
+
+[node name="Ground2" parent="Scene_objects/Grounds" instance=ExtResource( 3 )]
+position = Vector2( 770, -286 )
+
+[node name="Sprite" parent="Scene_objects/Grounds/Ground2" index="0"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 15.625, 1.875 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene_objects/Grounds/Ground2"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 15.625, 1.875 )
+polygon = PoolVector2Array( 16, 16, -16, 16, -16, -16, 16, -16 )
+
+[node name="Ground6" parent="Scene_objects/Grounds" instance=ExtResource( 3 )]
+position = Vector2( 1526, -286 )
+
+[node name="Sprite" parent="Scene_objects/Grounds/Ground6" index="0"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 31.875, 1.875 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene_objects/Grounds/Ground6"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 31.875, 1.875 )
+polygon = PoolVector2Array( 16, 16, -16, 16, -16, -16, 16, -16 )
+
+[node name="Ground4" parent="Scene_objects/Grounds" instance=ExtResource( 3 )]
+position = Vector2( 550, 156 )
+rotation = -1.57079
+
+[node name="Sprite" parent="Scene_objects/Grounds/Ground4" index="0"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 25.8647, 1.875 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene_objects/Grounds/Ground4"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 25.8647, 1.875 )
+polygon = PoolVector2Array( 16, 16, -16, 16, -16, -16, 16, -16 )
+
+[node name="Ground5" parent="Scene_objects/Grounds" instance=ExtResource( 3 )]
+position = Vector2( 2006, 156 )
+rotation = -1.57079
+
+[node name="Sprite" parent="Scene_objects/Grounds/Ground5" index="0"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 25.8647, 1.875 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene_objects/Grounds/Ground5"]
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 25.8647, 1.875 )
+polygon = PoolVector2Array( 16, 16, -16, 16, -16, -16, 16, -16 )
+
+[node name="Ground7" parent="Scene_objects/Grounds" instance=ExtResource( 3 )]
+position = Vector2( 1318, 453 )
+rotation = -1.57079
+
+[node name="Sprite" parent="Scene_objects/Grounds/Ground7" index="0"]
+position = Vector2( 2.33366, 0 )
+scale = Vector2( 7.45365, 1.875 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene_objects/Grounds/Ground7"]
+position = Vector2( 2.33366, 0 )
+scale = Vector2( 7.45365, 1.875 )
+polygon = PoolVector2Array( 16, 16, -16, 16, -16, -16, 16, -16 )
+
+[node name="Ground8" parent="Scene_objects/Grounds" instance=ExtResource( 3 )]
+position = Vector2( 1316, -60 )
+rotation = -1.57079
+
+[node name="Sprite" parent="Scene_objects/Grounds/Ground8" index="0"]
+position = Vector2( 27.0496, 0 )
+scale = Vector2( 10.6717, 1.875 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene_objects/Grounds/Ground8"]
+position = Vector2( 27.0496, 0 )
+scale = Vector2( 10.6717, 1.875 )
+polygon = PoolVector2Array( 16, 16, -16, 16, -16, -16, 16, -16 )
+
+[node name="Red_zones" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Red_zone" parent="Scene_objects/Red_zones" instance=ExtResource( 8 )]
+position = Vector2( 1318, 192 )
+
+[node name="Sprite" parent="Scene_objects/Red_zones/Red_zone" index="0"]
+scale = Vector2( 3.125, 6.0625 )
+
+[node name="CollisionShape2D" parent="Scene_objects/Red_zones/Red_zone/Area2D" index="0"]
+shape = SubResource( 2 )
+
+[node name="Death_zones" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Death_zone" parent="Scene_objects/Death_zones" instance=ExtResource( 7 )]
+position = Vector2( 736, 838 )
+
+[node name="CollisionShape2D" parent="Scene_objects/Death_zones/Death_zone/Area2D" index="0"]
+shape = SubResource( 1 )
+
+[node name="Star" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Goal" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Goal" parent="Scene_objects/Goal" instance=ExtResource( 6 )]
+position = Vector2( 1858, 512 )
+
+[node name="Invisible_walls" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Enemies" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Turrets" type="Node2D" parent="Enemies"]
+
+[node name="Turret" parent="Enemies/Turrets" instance=ExtResource( 2 )]
+position = Vector2( 1380, 536 )
+rotation = -1.57079
+bullet_max_distance = 2000.0
+shoot_direction = Vector2( 0, -1 )
+
+[node name="Turret2" parent="Enemies/Turrets" instance=ExtResource( 2 )]
+position = Vector2( 1943, 192 )
+rotation = -3.14159
+bullet_max_distance = 2000.0
+reload_time = 1.5
+shoot_direction = Vector2( -1, 0 )
+
+[node name="Spikes" type="Node2D" parent="Enemies"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Spike" parent="Enemies/Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1318, 300 )
+
+[node name="Spike2" parent="Enemies/Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1316, 114 )
+rotation = 3.14159
+
+[node name="Player" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="Player" instance=ExtResource( 4 )]
+position = Vector2( 738, 536 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player/Player"]
+
+[node name="Bubble_manager" parent="Player" instance=ExtResource( 5 )]
+
+[node name="Cameras" parent="Player" instance=ExtResource( 11 )]
+
+[editable path="Scene_objects/Grounds/Ground"]
+[editable path="Scene_objects/Grounds/Ground3"]
+[editable path="Scene_objects/Grounds/Ground2"]
+[editable path="Scene_objects/Grounds/Ground6"]
+[editable path="Scene_objects/Grounds/Ground4"]
+[editable path="Scene_objects/Grounds/Ground5"]
+[editable path="Scene_objects/Grounds/Ground7"]
+[editable path="Scene_objects/Grounds/Ground8"]
+[editable path="Scene_objects/Red_zones/Red_zone"]
+[editable path="Scene_objects/Death_zones/Death_zone"]

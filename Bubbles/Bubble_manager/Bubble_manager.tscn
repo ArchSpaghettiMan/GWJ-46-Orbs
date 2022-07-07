@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Bubbles/Bubble_manager/Bubble_manager.gd" type="Script" id=1]
+[ext_resource path="res://Bubbles/Bubble/Bubble.tscn" type="PackedScene" id=2]
+
+[node name="Bubble_manager" type="Node2D" groups=["Bubble_manager"]]
+pause_mode = 2
+script = ExtResource( 1 )
+bubble_scene = ExtResource( 2 )

@@ -1,0 +1,270 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene_objects/Death_zone/Death_zone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene_objects/Ground/Ground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Bubbles/Bubble_manager/Bubble_manager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Levels/Level_1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prizes/Goal/Goal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/Levels/Level.gd" type="Script" id=7]
+[ext_resource path="res://Player/Cameras/Cameras.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Fonts/Font_presets/Bold_text.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Assets/Fonts/Font_presets/Normal_text.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Assets/Fonts/Font_presets/Title.tres" type="DynamicFont" id=12]
+
+[sub_resource type="Theme" id=7]
+
+[sub_resource type="Theme" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1882, 32 )
+
+[node name="Start_menu" type="Node2D" groups=["Level"]]
+pause_mode = 2
+script = ExtResource( 7 )
+max_bubbles = 100
+next_level = ExtResource( 5 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = -1394.0
+margin_top = -1248.0
+margin_right = 2974.0
+margin_bottom = 1868.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -474.0
+margin_top = 1490.0
+margin_right = -19.0
+margin_bottom = 1541.0
+theme = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 12 )
+text = "PHOooompH"
+align = 1
+valign = 1
+
+[node name="Instructions" type="Control" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Instructions_1" type="Label" parent="Control/Instructions"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 1504.0
+margin_top = 2008.0
+margin_right = 2318.0
+margin_bottom = 2045.0
+theme = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Pre-play: move cameras around to place bubbles that makes you jump.
+Press space to move to Play"
+align = 1
+valign = 1
+
+[node name="Instructions_2" type="Label" parent="Control/Instructions"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 2110.0
+margin_top = 1908.0
+margin_right = 2675.0
+margin_bottom = 1925.0
+theme = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Play: Use A&D to move and touch the orb to win!"
+align = 1
+valign = 1
+
+[node name="Instructions_3" type="Label" parent="Control/Instructions"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 1086.0
+margin_top = 1882.0
+margin_right = 1544.0
+margin_bottom = 1919.0
+theme = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Left-click to place orbs
+Right-click to delete orbs"
+align = 1
+valign = 1
+
+[node name="Menu_labels" type="Control" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Start" type="Label" parent="Control/Menu_labels"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 2034.0
+margin_top = 1656.0
+margin_right = 2492.0
+margin_bottom = 1687.0
+theme = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Touch to play"
+align = 1
+valign = 1
+
+[node name="Settings" type="Label" parent="Control/Menu_labels"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 1260.0
+margin_top = 1656.0
+margin_right = 1718.0
+margin_bottom = 1687.0
+theme = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="Level_stats" type="CanvasLayer" parent="Control"]
+
+[node name="Bubble_count" type="Label" parent="Control/Level_stats"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -69.0
+margin_right = 69.0
+margin_bottom = 14.0
+theme = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "MAMAMAMAMMAMA"
+
+[node name="Level_label" type="Label" parent="Control/Level_stats"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -227.5
+margin_top = -31.0
+margin_right = 227.5
+theme = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Starting Menu"
+align = 1
+valign = 1
+
+[node name="Background" type="CanvasLayer" parent="Control"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Control/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.862745, 0.976471, 0.905882, 1 )
+
+[node name="Scene_objects" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Grounds" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ground" parent="Scene_objects/Grounds" instance=ExtResource( 3 )]
+position = Vector2( 510, 600 )
+
+[node name="Sprite" parent="Scene_objects/Grounds/Ground" index="0"]
+position = Vector2( 2, 0 )
+scale = Vector2( 32, 1.875 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene_objects/Grounds/Ground"]
+position = Vector2( 2, 0 )
+scale = Vector2( 32, 1.875 )
+polygon = PoolVector2Array( 16, 16, -16, 16, -16, -16, 16, -16 )
+
+[node name="Red_zones" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Spikes" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Star" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Goal" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Goal" parent="Scene_objects/Goal" instance=ExtResource( 6 )]
+position = Vector2( 892, 526 )
+
+[node name="Settings" parent="Scene_objects/Goal" instance=ExtResource( 6 )]
+position = Vector2( 114, 526 )
+mode = 1
+
+[node name="Invisible_walls" type="Node2D" parent="Scene_objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Enemies" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Turrets" type="Node2D" parent="Enemies"]
+
+[node name="Death_zones" type="Node2D" parent="Enemies"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Death_zone" parent="Enemies/Death_zones" instance=ExtResource( 2 )]
+position = Vector2( 736, 838 )
+
+[node name="CollisionShape2D" parent="Enemies/Death_zones/Death_zone/Area2D" index="0"]
+shape = SubResource( 1 )
+
+[node name="Player" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="Player" instance=ExtResource( 1 )]
+position = Vector2( 544, 538 )
+max_speed = 250.0
+acceleration = 775.0
+friction = 800.0
+jump_height = 150.0
+jump_time_to_peak = 0.6
+jump_time_to_descent = 0.4
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player/Player"]
+
+[node name="Bubble_manager" parent="Player" instance=ExtResource( 4 )]
+
+[node name="Cameras" parent="Player" instance=ExtResource( 8 )]
+
+[editable path="Scene_objects/Grounds/Ground"]
+[editable path="Enemies/Death_zones/Death_zone"]
+[editable path="Player/Cameras"]

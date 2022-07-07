@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/Global/Sound/Sound.gd" type="Script" id=1]
+[ext_resource path="res://World/Global/Sound/Sound_player/Audio_player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sounds/Twin-Musicom-8-bit-March.ogg" type="AudioStream" id=3]
+
+[node name="Sound" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+Sound_player_scene = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
